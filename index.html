@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Captif</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana ', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url(Image/background.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .singlePage {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .navLogoBar {
+            top: 0;
+            position: absolute;
+            background-color: #0d4633;
+            width: 100%;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navLogoBar img {
+            max-height: 60px;
+            /* Ajuste la taille maximale du logo */
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Fond blanc avec 80% d'opacité */
+            margin-top: 2rem;
+        }
+
+        .login-container h2 {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #0d4633;
+            /* Texte en vert foncé pour contraster avec le fond */
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            /* Couleur de texte sombre pour les labels */
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            /* Légère bordure grise pour les inputs */
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Fond légèrement transparent, tirant sur le blanc */
+            font-size: 1rem;
+            color: #333;
+            /* Texte sombre pour les inputs */
+        }
+
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            outline: none;
+            border-color: #0d4633;
+            /* Bordure verte foncée au focus pour mettre en évidence */
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #0d4633;
+            /* Bouton vert foncé pour s'accorder avec le thème général */
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-container button:hover {
+            background-color: #096f50;
+            /* Légère variation de la couleur au survol */
+        }
+
+        /* Conteneur principal pour la section d'information */
+        .info-section {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Étire les divs pour qu'elles aient la même hauteur */
+        }
+
+        /* Login Container */
+        .login-container,
+        .contact-box {
+            flex: 1;
+        }
+
+        /* Contact Box */
+        .contact-box {
+            margin-top: 32px;
+            width: 100%;
+            /* height: 300px; */
+            max-width: 400px;
+            padding: 2rem;
+            background-color: #0d4633;
+            color: white;
+            justify-content: center;
+        }
+
+        .contact-box .infos {
+            padding-top: 35px;
+        }
+
+
+        /* Styles pour les titres et les paragraphes */
+        .contact-box h3 {
+            padding-top: 5px;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-box p {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        /* Media Query pour les écrans plus petits */
+        @media (max-width: 768px) {
+            .info-section {
+                flex-direction: column;
+                /* Les divs seront empilées sur les petits écrans */
+            }
+
+            .contact-box {
+                max-width: 100%;
+                margin-top: auto;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 1rem;
+            }
+
+            .login-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .login-container input[type="text"],
+            .login-container input[type="password"] {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+
+            .login-container button {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="singlePage">
+        <div class="navLogoBar">
+            <img src="Image/logo.png" alt="Logo">
+        </div>
+        <section class="info-section">
+            <div class="login-container">
+                <h2>Connexion</h2>
+                <form method="post">
+                    <label for="user">Utilisateur</label>
+                    <input type="text" id="user" name="user" required>
+
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button type="submit">Valider !</button>
+                </form>
+            </div>
+            <div class="contact-box">
+                <div class="welcome">
+                    <h3>Bienvenue à l'Hôtel Byblos</h3>
+                    <p>Nous vous souhaitons un agréable séjour.</p>
+                </div>
+                <div class="infos">
+                    <p><strong>Contacts:</strong></p>
+                    <p><img src="Image/tel.svg" alt="" class="svg">: +225 07 07 20 05 55,<br> +225 27 21 71 05 00
+                    </p>
+                    <p><img src="Image/mail.svg" alt="" class="svg">: Info@bybloshotelci.com</p>
+                    <p><img src="Image/instagram.svg" alt="" class="svg"></p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>
