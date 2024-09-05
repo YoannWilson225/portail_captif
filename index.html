@@ -138,11 +138,6 @@
             justify-content: center;
         }
 
-        .contact-box .infos {
-            padding-top: 35px;
-        }
-
-
         /* Styles pour les titres et les paragraphes */
         .contact-box h3 {
             padding-top: 5px;
@@ -159,17 +154,11 @@
         @media (max-width: 768px) {
             .info-section {
                 flex-direction: column;
+                margin: 1rem;
+                padding: 2rem;
                 /* Les divs seront empilées sur les petits écrans */
             }
 
-            .contact-box {
-                max-width: 100%;
-                margin-top: auto;
-            }
-        }
-
-
-        @media (max-width: 480px) {
             .login-container {
                 padding: 1rem;
             }
@@ -187,6 +176,11 @@
             .login-container button {
                 font-size: 0.875rem;
                 padding: 0.5rem;
+            }
+
+            .contact-box {
+                max-width: 100%;
+                margin-top: auto;
             }
         }
     </style>
