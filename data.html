@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Captif | Data</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url(Image/background.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .singlePage {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .navLogoBar {
+            top: 0;
+            position: absolute;
+            background-color: #0d4633;
+            width: 100%;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navLogoBar img {
+            max-height: 60px;
+        }
+
+        .table-section {
+            margin-top: 100px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0d4633;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        td {
+            color: #333;
+        }
+
+        .data_table {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="singlePage">
+        <div class="navLogoBar">
+            <img src="Image/logo.png" alt="Logo">
+        </div>
+        <section class="table-section">
+            <div class="data_table">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Téléphone</th>
+                            <th>Contact</th>
+                            <th>Nb_connexion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Les données du JSON seront insérées ici -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Fonction pour charger les données depuis le fichier JSON
+        function loadTableData() {
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('#dataTable tbody');
+                    data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.email}</td>
+                            <td>${item.telephone}</td>
+                            <td>${item.contact}</td>
+                            <td>${item.nb_connexion}</td>
+
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement des données:', error);
+                });
+        }
+
+        // Appelle la fonction au chargement de la page
+        document.addEventListener('DOMContentLoaded', loadTableData);
+    </script>
+</body>
+
+</html>
