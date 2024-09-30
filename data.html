@@ -47,17 +47,33 @@
             max-height: 60px;
         }
 
+        /* Conteneur du tableau avec un scroll vertical et overflow auto */
         .table-section {
             margin-top: 100px;
+            width: 80%;
+            max-width: 1000px;
+            max-height: 400px;
+            /* Limite la hauteur du tableau */
+            overflow-y: auto;
+            /* Scroll vertical si nécessaire */
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Table avec scroll horizontal */
+        .data_table {
+            display: block;
+            overflow-x: auto;
+            /* Scroll horizontal si nécessaire */
+            width: 100%;
+            white-space: nowrap;
+            /* Empêche le tableau de se casser sur plusieurs lignes */
         }
 
         table {
             border-collapse: collapse;
-            width: 80%;
-            max-width: 800px;
-            margin: 0 auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
+            width: 100%;
         }
 
         th,
@@ -70,6 +86,9 @@
         th {
             background-color: #0d4633;
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 2;
         }
 
         tr:hover {
@@ -84,11 +103,12 @@
             color: #333;
         }
 
-        .data_table {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
+        /* Style responsive pour écrans <768px */
+        @media (max-width: 768px) {
+            .table-section {
+                width: 100%;
+                /* Prend toute la largeur disponible sur les petits écrans */
+            }
         }
     </style>
 </head>
@@ -131,7 +151,6 @@
                             <td>${item.telephone}</td>
                             <td>${item.contact}</td>
                             <td>${item.nb_connexion}</td>
-
                         `;
                         tableBody.appendChild(row);
                     });
